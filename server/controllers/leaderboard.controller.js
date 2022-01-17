@@ -10,7 +10,8 @@ const addScore = async (username, difficulty, time) => {
 
 const getLeaderboard = async () => {
   return Leaderboard.findAll({
-    order: [["time", "ASC"]]
+    order: [["time", "ASC"]],
+    group: ["username"]
   });
 };
 
