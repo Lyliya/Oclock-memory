@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:3000";
+const API_URL = "https://api.memory.lyliya.fr";
 const PLAY_TIME = 1;
 const MAX_PAIR = 18;
 let game_started = false;
@@ -168,6 +168,15 @@ const start = () => {
   displayBoard();
 };
 
+const genLeaderboardList = (array, element) => {
+  element.innerHTML = "";
+  for (const time of array) {
+    const li = document.createElement("li");
+    li.innerHTML = `${time.username} - ${(time.time / 1000).toFixed(2)}s`;
+    element.appendChild(li);
+  }
+};
+
 const getLeaderboard = async () => {
   const res = await fetch(`${API_URL}/leaderboard`);
 
@@ -178,43 +187,19 @@ const getLeaderboard = async () => {
   const impossibleList = document.querySelector("#impossible");
 
   if (leaderboard["5"]) {
-    easyList.innerHTML = "";
-    for (const time of leaderboard["5"]) {
-      console.log(time);
-      const li = document.createElement("li");
-      li.innerHTML = `${time.username} - ${time.time}`;
-      easyList.appendChild(li);
-    }
+    genLeaderboardList(leaderboard["5"], easyList);
   }
 
   if (leaderboard["9"]) {
-    mediumList.innerHTML = "";
-    for (const time of leaderboard["9"]) {
-      console.log(time);
-      const li = document.createElement("li");
-      li.innerHTML = `${time.username} - ${time.time}`;
-      mediumList.appendChild(li);
-    }
+    genLeaderboardList(leaderboard["9"], mediumList);
   }
 
   if (leaderboard["18"]) {
-    hardList.innerHTML = "";
-    for (const time of leaderboard["18"]) {
-      console.log(time);
-      const li = document.createElement("li");
-      li.innerHTML = `${time.username} - ${time.time}`;
-      hardList.appendChild(li);
-    }
+    genLeaderboardList(leaderboard["18"], hardList);
   }
 
   if (leaderboard["1"]) {
-    impossibleList.innerHTML = "";
-    for (const time of leaderboard["1"]) {
-      console.log(time);
-      const li = document.createElement("li");
-      li.innerHTML = `${time.username} - ${time.time}`;
-      impossibleList.appendChild(li);
-    }
+    genLeaderboardList(leaderboard["1"], impossibleList);
   }
 };
 
