@@ -164,6 +164,10 @@ body, html {
 .leaderboard {
     width: 90vw;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .leaderboard-container {
@@ -171,6 +175,7 @@ body, html {
     display: flex;
     justify-content: space-around;
     /* align-items: center; */
+    max-width: 1300px;
 }
 
 .leaderboard-container li {
