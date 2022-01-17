@@ -1,4 +1,4 @@
-const { Leaderboard } = require("../models");
+const { sequelize, Leaderboard } = require("../models");
 
 const addScore = async (username, difficulty, time) => {
   return Leaderboard.create({
@@ -10,8 +10,12 @@ const addScore = async (username, difficulty, time) => {
 
 const getLeaderboard = async () => {
   return Leaderboard.findAll({
-    order: [["time", "ASC"]],
-    group: ["username", "difficulty"]
+    attributes: {
+      exclude: ["time"],
+      include: [[sequelize.fn("MIN", sequelize.col("time")), "time"]]
+    },
+    order: [[sequelize.fn("MIN", sequelize.col("time")), "ASC"]],
+    group: ["difficulty", "username"]
   });
 };
 
