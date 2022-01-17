@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oclock - Memory</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="game-container">
+        <div class="modal">
+          <div class="form">
+            <h1>Submit your score</h1>
+            <input id="username" type="text" placeholder="Username" />
+            <button onclick="sendScore()">Send</button>
+            <div class="close" onclick="exitModal()">X</div>
+            <p id="log"></p>
+          </div>
+        </div>
+        <h1 class="title">Jeu de mémoire</h1>
+        <div class="difficulty">
+          <button onclick="setDifficulty(5)">Easy</button>
+          <button onclick="setDifficulty(9)">Medium</button>
+          <button onclick="setDifficulty(18)">Hard</button>
+          <button onclick="setDifficulty(1)">Impossible</button>
+        </div>
+        <div class="board-container"></div>
+        <div class="timer-container">
+          <div class="timer"></div>
+        </div>
+      </div>
+      <div class="leaderboard">
+        <h1>Leaderboard</h1>
+        <div class="leaderboard-container">
+          <div>
+            <h1>Easy</h1>
+            <ol id="easy" class="leaderboard-list"></ol>
+          </div>
+          <hr />
+          <div>
+            <h1>Medium</h1>
+            <ol id="medium" class="leaderboard-list"></ol>
+          </div>
+          <hr />
+          <div>
+            <h1>Hard</h1>
+            <ol id="hard" class="leaderboard-list"></ol>
+          </div>
+          <hr />
+          <div>
+            <h1>Impossible</h1>
+            <ol id="impossible" class="leaderboard-list"></ol>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="anime.js"></script>
+  <script src="index.js"></script>
+</html>
