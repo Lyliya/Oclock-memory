@@ -3,6 +3,7 @@ body, html {
     margin: 0;
     color: white;
     background-color: rgb(31, 31, 31);
+    font-family: 'Roboto', sans-serif;
 }
 
 @media only screen and (max-width: 580px) {
@@ -23,6 +24,10 @@ body, html {
   .leaderboard-container hr {
     width: 100%;
   }
+
+  .leaderboard-scroll {
+      font-size: .75em !important;
+  }
 }
 
 @media only screen and (max-height: 400px) {
@@ -40,6 +45,10 @@ body, html {
 
   .title {
       margin-top: 5px!important;
+  }
+
+  .leaderboard-scroll {
+      display: none !important;
   }
 }
 
@@ -168,4 +177,12 @@ body, html {
     text-align: justify !important;
     width: 100%;
     padding: 0;
+}
+
+.leaderboard-scroll {
+    position: absolute;
+    bottom: 15px;
+    color:rgb(150, 150, 150);
+    font-size: 1.5em;
+    font-weight: bold;
 }
