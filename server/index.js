@@ -31,5 +31,5 @@ app.use(express.json());
 app.use("/", router);
 
 server.listen(port, () => {
-  console.log("Listen on port 3000");
+  console.log(`Listen on ${port}`);
 });
